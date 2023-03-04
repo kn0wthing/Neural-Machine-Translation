@@ -2,7 +2,7 @@
 
 In this project, we have built a character level language model for [translating](https://en.wikipedia.org/wiki/Transliteration) English text into Hindi. It is implemented using TensorFlow. 
 Transliteration is the phonetic translation of the words in a source language ( here English ) into equivalent words in a target language ( here Hindi ). It preserves the pronunciation of the words.  
-This project has been inspired by the NMT model developed by [deep-diver]( https://github.com/deep-diver/EN-FR-MLT-tensorflow ).
+This project has been inspired by the NMT model developed by [NMT](https://github.com/LeadingIndiaAI/MODULE-ON-ENGLISH-TO-HINDI-NEURAL-MACHINE-TRANSLATION). But this model uses seq-to-seq with LSTM units.
 
 
 ## Overview of the Architecture
