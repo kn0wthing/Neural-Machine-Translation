@@ -22,8 +22,7 @@ We need to remove punctuations and special characters as well , so that these do
 *	**Tokenization**
  We wont be building one from scratch because why reinvent the wheel , so lets use a tokenizer readily made availabe to us. Keras gives us a tokenizer layer , so either we can use it as a stand alone component , or we could use it directly in our model architecture as the first layer for our inputs.
 
-## Building the Neural Network:
-We then created a sequence to sequence model i.e. **Encoder-Decoder layers**. 
+## Building the Transformer:
 1.	**Inputs to the encoding layer:**
     * `enc_dec_model_inputs()` : we have defined a function to create placeholders for encoder-decoder inputs.
     * `hyperparam_inputs()` : to create placeholders for the hyper parameters that are needed later, `lr_rate` (learning rate) and `keep_prob` (probability of dropouts).
