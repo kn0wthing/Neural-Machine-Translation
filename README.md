@@ -8,7 +8,7 @@ This project has been inspired by the NMT model developed by [deep-diver]( https
 ## Overview of the Architecture
 Transliteration being a type of many to many problem, we built a encoder-decoder model in TensorFlow. The objective of the model is Transliterating English text to Hindi script.
 
-* **Dataset:** We have used [HINDI-2-ENGLISH](https://www.kaggle.com/datasets/aiswaryaramachandran/hindienglish-corpora) dataset to train the model. FIRE dataset is useful for transliteration tasks, the one we used contains 30,823 word transliteration pairs of English to Hindi.
+* **Dataset:** We have used [HINDI-2-ENGLISH](https://www.clarin.eu/resource-families/parallel-corpora) dataset to train the model. FIRE dataset is useful for transliteration tasks, the one we used contains 30,823 word transliteration pairs of English to Hindi.
 * **Exploring the data:**
 The data has been stored separately into two variables; source text and target text i.e. English and Hindi respectively
 
