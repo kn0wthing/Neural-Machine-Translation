@@ -1,15 +1,14 @@
-# Machine Transliteration ( English to Hindi ) Tensorflow
+# Neural Machine Translation ( English to Hindi )
 
-In this project, we have built a character level language model for [transliterating](https://en.wikipedia.org/wiki/Transliteration) English text into Hindi. It is implemented using TensorFlow. 
+In this project, we have built a character level language model for [translating](https://en.wikipedia.org/wiki/Transliteration) English text into Hindi. It is implemented using TensorFlow. 
 Transliteration is the phonetic translation of the words in a source language ( here English ) into equivalent words in a target language ( here Hindi ). It preserves the pronunciation of the words.  
 This project has been inspired by the NMT model developed by [deep-diver]( https://github.com/deep-diver/EN-FR-MLT-tensorflow ).
 
-### Note: Refer to [GUIDE.md](/GUIDE.md) for a brief on code implementation.
 
 ## Overview of the Architecture
 Transliteration being a type of many to many problem, we built a encoder-decoder model in TensorFlow. The objective of the model is Transliterating English text to Hindi script.
 
-* **Dataset:** We have used [FIRE 2013](http://cse.iitkgp.ac.in/resgrp/cnerg/qa/fire13translit/index.html) dataset to train the model. FIRE dataset is useful for transliteration tasks, the one we used contains 30,823 word transliteration pairs of English to Hindi.
+* **Dataset:** We have used [HINDI-2-ENGLISH](https://www.kaggle.com/datasets/aiswaryaramachandran/hindienglish-corpora) dataset to train the model. FIRE dataset is useful for transliteration tasks, the one we used contains 30,823 word transliteration pairs of English to Hindi.
 * **Exploring the data:**
 The data has been stored separately into two variables; source text and target text i.e. English and Hindi respectively
 
@@ -17,11 +16,11 @@ The data has been stored separately into two variables; source text and target t
 
 ## Preprocessing: 
 The preprocessing contains two important steps which include:
-*	**Creating lookup tables:** 
-We made dictionaries (i.e. mapping tables) of character to corresponding character id and vice versa for both the source and target characters (vocabulary). Now we have 4 lookup tables.
-*	**Text to character ids:**
- We converted each character in the list of words to the corresponding index with the help of look-up tables
-The pre-processed data is saved to the external file.
+*	**Creating special tokens** 
+The model needs to understand when a particular sentence starts and when it ends , so we assign tags to the sentences to indicate the \<start of sentense> and \<end of sentense> .
+We need to remove punctuations and special characters as well , so that these donot become part of our vocabulary. Similarly we will have a dummy token called \<unknown> for items which are out of scope
+*	**Tokenization**
+ We wont be building one from scratch because why reinvent the wheel , so lets use a tokenizer readily made availabe to us. Keras gives us a tokenizer layer , so either we can use it as a stand alone component , or we could use it directly in our model architecture as the first layer for our inputs.
 
 ## Building the Neural Network:
 We then created a sequence to sequence model i.e. **Encoder-Decoder layers**. 
@@ -55,8 +54,6 @@ We used _Adam optimizer_ (`tf.train.AdamOptimizer`) with specified learning rate
 
 ## Train:
 We defined get_accuracy function to compute train and validation accuracy.
- 
-![Training and Validation accuracy of the model over 60 epochs](/Screenshot_accuracy.JPG)
 
 ## Save parameters:
 We then saved the `batch_size` and `save_path` parameters for inference.
